@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="entry.GuiController">
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <Pane prefHeight="519.0" prefWidth="485.0">
+         <children>
+            <Button id="scanfiles" fx:id="scanfiles" layoutX="43.0" layoutY="147.0" mnemonicParsing="false" onAction="#exploreFTP" text="Scan Files" />
+            <Button id="checkconnectionftp" fx:id="checkconnectionftp" layoutX="361.0" layoutY="57.0" mnemonicParsing="false" text="Check Connection" onAction="#checkFTPConnection" />
+            <CheckBox id="anonymouchchk" fx:id="anonymouchchk" layoutX="361.0" layoutY="28.0" mnemonicParsing="false" onMouseClicked="#anonymousConnection" selected="true" text="Anonymous" />
+            <PasswordField id="passwordftp" fx:id="passwordftp" layoutX="202.0" layoutY="57.0" text="password" />
+            <TextField id="ftp" fx:id="ftp" layoutX="43.0" layoutY="24.0" text="server.ftp" />
+            <TextField id="ftpPath" fx:id="ftpPath" layoutX="43.0" layoutY="57.0" text="ftp.path" />
+            <TextField id="userftp" fx:id="userftp" layoutX="202.0" layoutY="24.0" text="user" />
+            <TextField id="host" fx:id="host" layoutX="43.0" layoutY="87.0" text="remote server ip" />
+            <TextField id="userhost" fx:id="userhost" layoutX="202.0" layoutY="87.0" text="user" />
+            <PasswordField id="passwordhost" fx:id="passwordhost" layoutX="202.0" layoutY="121.0" text="password" />
+            <Button id="checkconnectionhost" fx:id="checkconnectionhost" layoutX="361.0" layoutY="121.0" mnemonicParsing="false" text="Check Connection" />
+            <Button id="uploadfiles" fx:id="uploadfiles" layoutX="117.0" layoutY="147.0" mnemonicParsing="false" text="Upload files" onMouseClicked="#uploadFiles"/>
+            <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ftp://" />
+            <Text layoutX="16.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="host" />
+            <Text layoutX="43.0" layoutY="404.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Logs" />
+            <Text layoutX="16.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RemoteMagic Tool by Grapek9" />
+            <Hyperlink id="github" layoutX="41.0" layoutY="494.0" text="Hyperlink" />
+            <TextArea fx:id="logs" layoutX="43.0" layoutY="407.0" prefHeight="84.0" prefWidth="421.0" />
+            <ListView fx:id="filelist" layoutX="41.0" layoutY="184.0" prefHeight="200.0" prefWidth="421.0" />
+         </children>
+      </Pane>
+   </children>
+</GridPane>
