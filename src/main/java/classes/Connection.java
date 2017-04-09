@@ -81,7 +81,7 @@ public class Connection {
             options.set(CONNECTION_TYPE, WINRM_INTERNAL);
             con = Overthere.getConnection("cifs",options);
         }else{
-            System.out.println("Unresolved system.");
+            System.out.println("Unresolved system .");
         }
     }
 
