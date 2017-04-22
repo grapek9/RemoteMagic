@@ -22,7 +22,7 @@ public class LinuxHost implements Host {
             connection.execute(CmdLine.build("wget","-O","/root/Desktop/"+ftpPath.split("/")[ftpPath.split("/").length-1],"ftp://"+ftpServer+"/"+ftpPath));
 
         }catch (Exception e){
-            System.out.println("test");
+            logs.appendText("[ERROR] Could not upload file "+ftpPath.split("/")[ftpPath.split("/").length-1]);
         }
     }
 }

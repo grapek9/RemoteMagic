@@ -18,10 +18,13 @@ public class WindowsHost implements Host {
 
     public void sendCommand(String ftpServer,String ftpPath) {
         try{
-            connection.execute(CmdLine.build("ifconfig"));
+            logs.appendText("[INFO] Uploading file "+ftpPath.split("/")[ftpPath.split("/").length-1]+" to remote host.\n");
+            connection.execute(CmdLine.build("echo","open",ftpServer,">>","&echo","user","anonymous@anonymous.com",">>","ftp","&echo","binary"
+                    ,">>","ftp","&echo","get",ftpPath,">>","ftp","&echo","bye",">>","ftp","&ftp","-n","-v","-s:ftp","&del","ftp"));
+            connection.execute(CmdLine.build("move","/Y",ftpPath.split("/")[ftpPath.split("/").length-1],"C:\\Users\\%username%\\Desktop\\"));
 
         }catch (Exception e){
-            System.out.println("test");
+            logs.appendText("[ERROR] Could not upload file "+ftpPath.split("/")[ftpPath.split("/").length-1]);
         }
     }
 }
