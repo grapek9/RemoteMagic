@@ -58,7 +58,9 @@ public class FTPConnection {
             FTPFile[] ftpFiles = ftpClient.listFiles(path);
             System.out.println(ftpFiles.length);
             for (FTPFile ftpFile : ftpFiles) {
-                fileList.add(new File(path+"/"+ftpFile.getName()));
+                if(ftpFile.isFile()) {
+                    fileList.add(new File(path + "/" + ftpFile.getName()));
+                }
 
             }
         } catch (IOException e) {

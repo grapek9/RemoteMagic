@@ -1,6 +1,7 @@
 package entry;
 
 
+import classes.Connection;
 import classes.FTPConnection;
 import classes.File;
 import javafx.collections.FXCollections;
@@ -18,6 +19,7 @@ public class GuiController implements Initializable{
     private String ftpUser = "anonymous";
     private String ftpPassword= "test@test.pl";
     private List<File> files = null;
+    private Connection hostConnection = null;
 
 
     @FXML private TextField ftp;
@@ -60,8 +62,7 @@ public class GuiController implements Initializable{
         System.out.println("ScanFiles");
         ObservableList<String> items = FXCollections.observableArrayList ();
         for (File file : files) {
-            items.add(file.getName());
-            System.out.println(file.getPath());
+            items.add(file.getPath());
         }
         filelist.setItems(items);
 
@@ -84,13 +85,20 @@ public class GuiController implements Initializable{
     }
     @FXML
     private void checkHostConnection(){
+        if(hostConnection == null){
+            hostConnection = new Connection(host.getText(),userhost.getText(),passwordhost.getText(),logs);
+        }
+        hostConnection.estabilishConnection();
 
     }
     @FXML
     private void uploadFiles(){
+        checkHostConnection();
         ObservableList<String> selectedFiles = filelist.getSelectionModel().getSelectedItems();
         for (String selectedFile : selectedFiles) {
             System.out.println("Selected Files : "+selectedFile);
+
+            hostConnection.downloadFile(ftp.getText(),selectedFile);
 
         }
 
